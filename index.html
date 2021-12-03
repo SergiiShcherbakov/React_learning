@@ -5,12 +5,23 @@
         <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            #heading {
+                color: darkred;
+            }
+            .cityName {
+                font-weight: 1200;
+                font-style: italic;
+            }
+        </style>
     </head>
     <body>
         <div id="root"></div>
         <script type="text/babel">
+            let city = "Kharkiv";
+
             ReactDOM.render(
-                <h1>Hello World</h1>,
+                <h1 id="heading" className="cityName">Hello {city}!!!</h1>,
                 document.getElementById("root")
             );
         </script>
