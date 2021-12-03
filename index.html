@@ -18,23 +18,19 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
-            // const Hello = () =>
-            //     <div id="heading">
-            //         <h1>Hello React!!!!</h1>
-            //     </div>
-            //
-            // // the same as above
-            const Hello = ({library, message}) => {
-                return(
-                    <div id="heading">
-                        <h1 className="helloStyle">Hello {library}!!!!</h1>
-                        <p>{message}</p>
-                    </div>
-                )
-            }
+            const Lake = ({name}) => <h1>{name}</h1>;
+
+            const App = () => (
+              <div>
+                  <Lake name="Sivash lake" />
+                  <Lake name="Bule lake" />
+                  <Lake name="White lake" />
+              </div>
+            );
 
             ReactDOM.render(
-                <Hello message="Enjoy!" library="React"/>,
+
+                <App />,
                 document.getElementById("root")
             );
         </script>
