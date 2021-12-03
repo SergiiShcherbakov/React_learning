@@ -24,18 +24,17 @@
             //     </div>
             //
             // // the same as above
-            const Hello = (props) => {
-                console.log(props)
+            const Hello = ({library, message}) => {
                 return(
                     <div id="heading">
-                        <h1 className="helloStyle">Hello {props.library}!!!!</h1>
-                        <p>{props.message}</p>
+                        <h1 className="helloStyle">Hello {library}!!!!</h1>
+                        <p>{message}</p>
                     </div>
                 )
             }
 
             ReactDOM.render(
-                <Hello library="React" message="Enjoy!"/>,
+                <Hello message="Enjoy!" library="React"/>,
                 document.getElementById("root")
             );
         </script>
