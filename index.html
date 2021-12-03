@@ -21,9 +21,14 @@
             const Lake = ({name}) => <h1>{name}</h1>;
 
             class App extends React.Component {
+                state = {
+                    loggedIn: false
+                }
+
                 render() {
                     return (
                         <div>
+                            <div>The user is {this.state.loggedIn ? "logged in" : "not logged in"}</div>
                             <Lake name="Sivash lake" />
                             <Lake name="Bule lake" />
                             <Lake name="White lake" />
