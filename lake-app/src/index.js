@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const lakeList = [
+    {id: 1, name: "Blue", trailhead: "Blue trailhdead"},
+    {id: 2, name: "White", trailhead: "White trailhdead"},
+    {id: 3, name: "Sinivir", trailhead: "Sinivir trailhdead"}
+]
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App lakes={lakeList} />,
+    document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

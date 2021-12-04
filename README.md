@@ -2,6 +2,7 @@ The project when I learn react
 
 I learn react by this course https://www.linkedin.com/learning/learning-react-js-2019
 
+
 for create app I have used command: 
 1.npm -v  
 	-  check version of npm, my version was 6.4.1
@@ -11,3 +12,7 @@ for create app I have used command:
 	-  install react creator throug npm
 4. create-react-app lake-app
 	- for create lake-app my test application
+
+
+5. npm start 
+	- for starting the server. (see commit wher the message apears)
