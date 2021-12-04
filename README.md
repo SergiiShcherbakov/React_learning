@@ -16,3 +16,9 @@ for create app I have used command:
 
 5. npm start 
 	- for starting the server. (see commit wher the message apears)
+	
+6. npm run build
+	- for build production 
+
+7. npm install serve -g
+	- for installing local server to check production build
