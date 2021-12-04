@@ -25,9 +25,16 @@
                     loggedIn: false
                 }
 
+                logIn = () => {
+                    this.state.loggedIn ?
+                        this.setState({loggedIn: false}) :
+                        this.setState({loggedIn: true}) ;
+                }
+
                 render() {
                     return (
                         <div>
+                            <button onClick={this.logIn}> {this.state.loggedIn ? "log out" : "log in"}</button>
                             <div>The user is {this.state.loggedIn ? "logged in" : "not logged in"}</div>
                             <Lake name="Sivash lake" />
                             <Lake name="Bule lake" />
