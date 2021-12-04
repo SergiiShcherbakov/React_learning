@@ -7,7 +7,8 @@ import reportWebVitals from './reportWebVitals';
 const lakeList = [
     {id: 1, name: "Blue", trailhead: "Blue trailhdead"},
     {id: 2, name: "White", trailhead: "White trailhdead"},
-    {id: 3, name: "Sinivir", trailhead: "Sinivir trailhdead"}
+    {id: 3, name: "Sinivir", trailhead: "Sinivir trailhdead"},
+    {id: 4, name: "Sinivir2", trailhead: "Sinivir2 trailhdead"}
 ]
 
 ReactDOM.render(
