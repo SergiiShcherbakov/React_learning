@@ -4,3 +4,7 @@ In this branch I will learn the course https://www.linkedin.com/learning/react-j
 every commit adds a new chapter, so if you want to show history, please see commits.
 
 npm install -g crate-react
+        -  the command installs globally by npm react creator.
+
+npm start
+        - starts local server
