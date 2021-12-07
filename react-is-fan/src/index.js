@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
 var style = {
@@ -7,21 +7,34 @@ var style = {
     fontfamily: 'Arial'
 }
 
-class Message extends React.Component {
+let SkiData = {
+    total: 50,
+    powder: 20,
+    backcountry: 10,
+    goal: 100
+}
+
+class SkyDayCounter extends React.Component {
     render() {
+        const {total, powder, backcountry, goal} = this.props
         console.log(this.props)
         return (
-            <div>
-                <h1 style={{color: this.props.color}}>
-                    Hello Everyone! {this.props.msg}
-                </h1>
-                <p>I'll check back in {this.props.minutes} minutest</p>
-            </div>
+            <section>
+                <div> Total Days: {total} </div>
+                <div> Total Days: {powder} </div>
+                <div> Total Days: {backcountry} </div>
+                <div> Total Days: {goal} </div>
+            </section>
         )
     }
 }
 
 ReactDOM.render(
-    <Message color="blue" age={50} msg="How are you?" minutes={5} />,
+    <SkyDayCounter
+        total={SkiData.total}
+        powder={SkiData.powder}
+        backcountry={SkiData.backcountry}
+        goal={SkiData.goal}
+    />,
     document.getElementById('react-container')
 )
