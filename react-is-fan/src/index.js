@@ -15,15 +15,22 @@ let SkiData = {
 }
 
 class SkyDayCounter extends React.Component {
+    getPercent = decimal => {
+        return decimal * 100 + '%'
+    }
+    calcCoalProgress = (total, goal) => {
+        return this.getPercent(total/goal)
+    }
+
     render() {
-        const {total, powder, backcountry, goal} = this.props
         console.log(this.props)
+        const {total, powder, backcountry, goal} = this.props
         return (
             <section>
                 <div> Total Days: {total} </div>
-                <div> Total Days: {powder} </div>
-                <div> Total Days: {backcountry} </div>
-                <div> Total Days: {goal} </div>
+                <div> Powder Days: {powder} </div>
+                <div> Backcountry Days: {backcountry} </div>
+                <div> Goal progress: {this.calcCoalProgress(total, goal)} </div>
             </section>
         )
     }
