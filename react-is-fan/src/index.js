@@ -12,13 +12,16 @@ class Message extends React.Component {
         console.log(this.props)
         return (
             <div>
-                <h1>Hello Everyone! {this.props.msg}</h1>
+                <h1 style={{color: this.props.color}}>
+                    Hello Everyone! {this.props.msg}
+                </h1>
+                <p>I'll check back in {this.props.minutes} minutest</p>
             </div>
         )
     }
 }
 
 ReactDOM.render(
-    <Message age={50} msg="How are you?"/>,
+    <Message color="blue" age={50} msg="How are you?" minutes={5} />,
     document.getElementById('react-container')
 )
