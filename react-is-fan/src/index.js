@@ -19,12 +19,23 @@ const Book = ({author, title, pages, freeBookmark}) => {
 
 }
 
+const Hiring = () =>
+    <div>
+        <p>The library is hiring.</p>
+    </div>
+
+const NotHiring = () =>
+    <div>
+        <p>The library is not hiring.</p>
+    </div>
+
 class Library extends React.Component {
     //there is a good article about state in react
     // https://reactjs.org/docs/lifting-state-up.html
     state = {
         open: true,
-        freeBookmark: true
+        freeBookmark: true,
+        hiring: true
     }
     toggleOpenClosed=() => {
         this.setState(prevState => ({
@@ -40,6 +51,7 @@ class Library extends React.Component {
         return (
             <div>
                 <h1>Welcome to the library!!!</h1>
+                {this.state.hiring ? <Hiring /> : <NotHiring />}
                 <h2>The library is {this.state.open ? 'open' : 'closed'}!</h2>
                 <button onClick={this.toggleOpenClosed}>{this.state.open ? "Close the library" : "Open the library"}</button>
                 {books.map(
