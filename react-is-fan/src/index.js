@@ -1,44 +1,29 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
-var style = {
-    backgroundColor: 'orange',
-    color: 'white',
-    fontfamily: 'Arial'
-}
-
-let SkiData = {
-    total: 50,
-    powder: 20,
-    backcountry: 10,
-    goal: 100
-}
-
-const getPercent = decimal => {
-    return decimal * 100 + '%'
-}
-
-const calcCoalProgress = (total, goal) => {
-        return getPercent(total/goal)
-    }
-
-const SkyDayCounter = ({total, powder, backcountry, goal}) => {
+const Book = ({author, title, pages}) => {
     return (
         <section>
-            <div> Total Days: {total} </div>
-            <div> Powder Days: {powder} </div>
-            <div> Backcountry Days: {backcountry} </div>
-            <div> Goal progress: {calcCoalProgress(total, goal)} </div>
+            <h2>{title}</h2>
+            <p>by: {author}</p>
+            <p>pages: {pages}</p>
         </section>
+    )
+
+}
+
+const Libraty = () => {
+    return (
+        <div>
+            Welcome to the library!!!
+            <Book title="One" author="One author" pages={33} />
+            <Book title="Two" author="Second author" pages={43} />
+            <Book title="Three" author="Third author" pages={53} />
+        </div>
     )
 }
 
 ReactDOM.render(
-     <SkyDayCounter
-        total={SkiData.total}
-        powder={SkiData.powder}
-        backcountry={SkiData.backcountry}
-        goal={SkiData.goal}
-    />,
+    <Libraty />,
     document.getElementById('react-container')
 )
