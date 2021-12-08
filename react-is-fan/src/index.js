@@ -10,7 +10,7 @@ let BookList = [
 const Book = ({author, title, pages}) => {
     return (
         <section>
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <p>by: {author}</p>
             <p>pages: {pages}</p>
         </section>
@@ -18,23 +18,52 @@ const Book = ({author, title, pages}) => {
 
 }
 
-const Libraty = ({books}) => {
-    return (
-        <div>
-            Welcome to the library!!!
-            {books.map(
-                (book, i) =>
-                    <Book key={i} // all component in list should have unique id key, or we will have warning
-                          title={book.title}
-                          author={book.author}
-                          pages={book.pages} />
-            )}
-        </div>
-    )
+class Library extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+        // add to the method context
+        this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+    }
+
+    toggleOpenClosed(){
+        this.setState(prevState => ({
+            open: !prevState.open
+        }))
+    }
+
+    // toggleOpenClosed(){
+    //     this.setState({
+    //         open: !this.state.open
+    //     })
+    // }
+
+    render() {
+        console.log(this.state)
+        const { books } = this.props
+        // the same as above
+        // const books = this.props.books
+        return (
+            <div>
+                <h1>Welcome to the library!!!</h1>
+                <h2>The library is {this.state.open ? 'open' : 'closed'}!</h2>
+                <button onClick={this.toggleOpenClosed}>{this.state.open ? "Close the library" : "Open the library"}</button>
+                {books.map(
+                    (book, i) =>
+                        <Book key={i} // all component in list should have unique id key, or we will have warning
+                              title={book.title}
+                              author={book.author}
+                              pages={book.pages} />
+                )}
+            </div>
+        )
+    }
 }
 
 
 ReactDOM.render(
-    <Libraty books={BookList} />,
+    <Library books={BookList} />,
     document.getElementById('react-container')
 )
