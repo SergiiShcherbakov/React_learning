@@ -19,27 +19,30 @@ const Book = ({author, title, pages}) => {
 }
 
 class Library extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            open: false
-        }
-        // add to the method context
-        this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
-    }
+    //
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         open: false
+    //     }
+    //     // add to the method context
+    //     this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+    // }
+    //
+    // toggleOpenClosed() {
+    //     this.setState(prevState => ({
+    //         open: !prevState.open
+    //     }))
+    // }
 
-    toggleOpenClosed(){
+    // the same as committed above but little bit cline.
+    state = {open: false}
+    toggleOpenClosed=() => {
         this.setState(prevState => ({
             open: !prevState.open
         }))
     }
-
-    // toggleOpenClosed(){
-    //     this.setState({
-    //         open: !this.state.open
-    //     })
-    // }
-
+    //--------------
     render() {
         console.log(this.state)
         const { books } = this.props
