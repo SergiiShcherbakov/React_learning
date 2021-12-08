@@ -14,30 +14,27 @@ let SkiData = {
     goal: 100
 }
 
-class SkyDayCounter extends React.Component {
-    getPercent = decimal => {
-        return decimal * 100 + '%'
-    }
-    calcCoalProgress = (total, goal) => {
-        return this.getPercent(total/goal)
+const getPercent = decimal => {
+    return decimal * 100 + '%'
+}
+
+const calcCoalProgress = (total, goal) => {
+        return getPercent(total/goal)
     }
 
-    render() {
-        console.log(this.props)
-        const {total, powder, backcountry, goal} = this.props
-        return (
-            <section>
-                <div> Total Days: {total} </div>
-                <div> Powder Days: {powder} </div>
-                <div> Backcountry Days: {backcountry} </div>
-                <div> Goal progress: {this.calcCoalProgress(total, goal)} </div>
-            </section>
-        )
-    }
+const SkyDayCounter = ({total, powder, backcountry, goal}) => {
+    return (
+        <section>
+            <div> Total Days: {total} </div>
+            <div> Powder Days: {powder} </div>
+            <div> Backcountry Days: {backcountry} </div>
+            <div> Goal progress: {calcCoalProgress(total, goal)} </div>
+        </section>
+    )
 }
 
 ReactDOM.render(
-    <SkyDayCounter
+     <SkyDayCounter
         total={SkiData.total}
         powder={SkiData.powder}
         backcountry={SkiData.backcountry}
