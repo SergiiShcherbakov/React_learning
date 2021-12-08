@@ -7,36 +7,25 @@ let BookList = [
     { "title": "One2", "author2": "One author2", "pages": 332}
 ]
 
-const Book = ({author, title, pages}) => {
+const Book = ({author, title, pages, freeBookmark}) => {
     return (
         <section>
             <h3>{title}</h3>
             <p>by: {author}</p>
             <p>pages: {pages}</p>
+            <p>freeBookmark: {freeBookmark ? "yes!" : "no!"}</p>
         </section>
     )
 
 }
 
 class Library extends React.Component {
-    //
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         open: false
-    //     }
-    //     // add to the method context
-    //     this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
-    // }
-    //
-    // toggleOpenClosed() {
-    //     this.setState(prevState => ({
-    //         open: !prevState.open
-    //     }))
-    // }
-
-    // the same as committed above but little bit cline.
-    state = {open: false}
+    //there is a good article about state in react
+    // https://reactjs.org/docs/lifting-state-up.html
+    state = {
+        open: true,
+        freeBookmark: true
+    }
     toggleOpenClosed=() => {
         this.setState(prevState => ({
             open: !prevState.open
@@ -58,7 +47,9 @@ class Library extends React.Component {
                         <Book key={i} // all component in list should have unique id key, or we will have warning
                               title={book.title}
                               author={book.author}
-                              pages={book.pages} />
+                              pages={book.pages}
+                              freeBookmark={this.state.freeBookmark}
+                        />
                 )}
             </div>
         )
