@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
+let BookList = [
+    { "title": "One", "author": "One author", "pages": 33},
+    { "title": "One1", "author1": "One author1", "pages": 331},
+    { "title": "One2", "author2": "One author2", "pages": 332}
+]
+
 const Book = ({author, title, pages}) => {
     return (
         <section>
@@ -12,18 +18,23 @@ const Book = ({author, title, pages}) => {
 
 }
 
-const Libraty = () => {
+const Libraty = ({books}) => {
     return (
         <div>
             Welcome to the library!!!
-            <Book title="One" author="One author" pages={33} />
-            <Book title="Two" author="Second author" pages={43} />
-            <Book title="Three" author="Third author" pages={53} />
+            {books.map(
+                (book, i) =>
+                    <Book key={i} // all component in list should have unique id key, or we will have warning
+                          title={book.title}
+                          author={book.author}
+                          pages={book.pages} />
+            )}
         </div>
     )
 }
 
+
 ReactDOM.render(
-    <Libraty />,
+    <Libraty books={BookList} />,
     document.getElementById('react-container')
 )
