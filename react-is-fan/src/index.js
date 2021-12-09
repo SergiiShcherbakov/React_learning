@@ -71,10 +71,12 @@ class Library extends React.Component {
                  <div>
                      {this.state.data.map(product => {
                          return(
-                             <div>
+                             // article about accessibility
+                             //https://reactjs.org/docs/accessibility.html
+                             <div key={product.id}>
                                  <h3>Libraty product of the Week!</h3>
                                  <h4>{product.name}</h4>
-                                 <img src={product.image} height={100} />
+                                 <img alt={product.name} src={product.image} height={100} />
                              </div>
                          )
                      })}
