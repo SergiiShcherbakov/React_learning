@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
 let BookList = [
+    { "title": "One"},
     { "title": "One", "author": "One author", "pages": 33},
     { "title": "One1", "author1": "One author1", "pages": 331},
     { "title": "One2", "author2": "One author2", "pages": 332}
 ]
 
-const Book = ({author, title, pages, freeBookmark}) => {
+const Book = ({author="No author", title="No title", pages=0, freeBookmark}) => {
     return (
         <section>
             <h3>{title}</h3>
@@ -105,6 +106,9 @@ class Library extends React.Component {
 }
 
 ReactDOM.render(
-    <Library />,
+    <div>
+        <Library books={BookList} />
+        <Library />
+    </div>,
     document.getElementById('react-container')
 )
