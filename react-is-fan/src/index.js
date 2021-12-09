@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
+// instal by command: npm install prop-types --save
 
 let BookList = [
-    { "title": "One"},
+    {"title": "One"},
     { "title": "One", "author": "One author", "pages": 33},
     { "title": "One1", "author1": "One author1", "pages": 331},
     { "title": "One2", "author2": "One author2", "pages": 332}
@@ -103,6 +105,17 @@ class Library extends React.Component {
             </div>
         )
     }
+}
+
+Library.propTypes = {
+    books: PropTypes.array
+}
+
+Book.prototype = {
+    title: PropTypes.string,
+    author: PropTypes.string,
+    pages: PropTypes.number,
+    freeBookmark: PropTypes.bool
 }
 
 ReactDOM.render(

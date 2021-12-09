@@ -8,3 +8,6 @@ npm install -g crate-react
 
 npm start
         - starts local server
+
+npm install prop-types --save
+        - instal prop-types lib, that can help check type of parameters
