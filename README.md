@@ -11,3 +11,9 @@ npm start
 
 npm install prop-types --save
         - instal prop-types lib, that can help check type of parameters
+
+npm run build
+        - build production ready code in folder build
+
+serve -s build
+        - start production code for testing from folder build
