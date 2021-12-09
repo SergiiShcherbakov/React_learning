@@ -30,21 +30,27 @@ const NotHiring = () =>
     </div>
 
 class Library extends React.Component {
+    state = {
+        open: true,
+        freeBookmark: true,
+        hiring: true,
+        data: [],
+        loading: false
+    }
     // The diagram shows component lifecycle
     // https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
     componentDidMount() {
         console.log("The component is  now mounted!")
+        this.setState({loading:true})
+        fetch('https://hplussport.com/api/products/order/price/sotr/asc/qty/1')
+            .then(data => data.json())
+            .then(data => this.setState({data, loading: false}))
     }
     componentDidUpdate() {
         console.log("The component is  now updated!")
     }
     componentWillUnmount() {
         console.log("The component wii unmount!")
-    }
-    state = {
-        open: true,
-        freeBookmark: true,
-        hiring: true
     }
     toggleOpenClosed=() => {
         this.setState(prevState => ({
@@ -61,6 +67,19 @@ class Library extends React.Component {
             <div>
                 <h1>Welcome to the library!!!</h1>
                 {this.state.hiring ? <Hiring /> : <NotHiring />}
+                {this.state.loading ? "loading..." :
+                 <div>
+                     {this.state.data.map(product => {
+                         return(
+                             <div>
+                                 <h3>Libraty product of the Week!</h3>
+                                 <h4>{product.name}</h4>
+                                 <img src={product.image} height={100} />
+                             </div>
+                         )
+                     })}
+                 </div>
+                }
                 <h2>The library is {this.state.open ? 'open' : 'closed'}!</h2>
                 <button onClick={this.toggleOpenClosed}>{this.state.open ? "Close the library" : "Open the library"}</button>
                 {books.map(
