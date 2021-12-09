@@ -30,8 +30,17 @@ const NotHiring = () =>
     </div>
 
 class Library extends React.Component {
-    //there is a good article about state in react
-    // https://reactjs.org/docs/lifting-state-up.html
+    // The diagram shows component lifecycle
+    // https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+    componentDidMount() {
+        console.log("The component is  now mounted!")
+    }
+    componentDidUpdate() {
+        console.log("The component is  now updated!")
+    }
+    componentWillUnmount() {
+        console.log("The component wii unmount!")
+    }
     state = {
         open: true,
         freeBookmark: true,
@@ -68,7 +77,7 @@ class Library extends React.Component {
     }
 }
 
-
+//https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 ReactDOM.render(
     <Library books={BookList} />,
     document.getElementById('react-container')
